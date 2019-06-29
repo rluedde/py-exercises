@@ -3,6 +3,7 @@
 # script asks a user for a number and finds all valid divisors of the number
 
 print("script is working")
+
 try:
 	number = int(input("Enter a number that you want to find the divisors of: "))
 except ValueError:
@@ -19,3 +20,5 @@ for i in range(1,number):
 		print(i)
 
 print(list_divisors)
+
+# seeing how pushing and branching works
