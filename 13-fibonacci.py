@@ -1,6 +1,7 @@
 # https://www.practicepython.org/exercise/2014/04/30/13-fibonacci.html
 
 # this script creates a list of fibonacci number of length specified by user
+# input is from the argument passed into the function, not the input() function
 
 def fib_list(amount_fib_nums):
 	current_num = 1
