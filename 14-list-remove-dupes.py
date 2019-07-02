@@ -41,4 +41,15 @@ def dupe_remover(list_with_dupes):
 	print(len(list_without_dupes))
 	return list_without_dupes
 
-print(dupe_remover(list_creator("I")))
+list_with_dupes = list_creator("I")
+list_without_dupes = dupe_remover(list_with_dupes)
+
+
+
+
+
+
+# question I am going to look into: how does the distribution of integer lists change when dupes are 
+# removes versus kept
+# how to go about this: create a histogram of the random list before dupe removal and after dupe removal
+# (not much else to really do to answer this question)
