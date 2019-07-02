@@ -1,14 +1,12 @@
-import sys
+import string,random
 
-stuff = ['thing 1','thing 2']
+lowercase_letters = string.ascii_lowercase
 
-print(stuff, stuff.reverse())
+random_word = []
+for i in range(5):
+	
+	random_letter = random.choice(lowercase_letters)
+	random_word.append(random_letter)
 
-os = ['Windows', 'macOS', 'Linux']
-print('Original List:', os)
-
-# List Reverse
-os.reverse()
-
-# updated list
-print('Updated List:', os)
+random_word = "".join(random_word)
+print(random_word)
