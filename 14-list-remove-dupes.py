@@ -33,6 +33,7 @@ def list_creator(strings_or_integers):
 
 # takes a list potentially with duplicate elements and returns a list
 # without any duplicates
+
 def dupe_remover(list_with_dupes):
 	list_without_dupes = []
 	for thing in list_with_dupes:
@@ -41,13 +42,9 @@ def dupe_remover(list_with_dupes):
 	print(len(list_without_dupes))
 	return list_without_dupes
 
-list_with_dupes = list_creator("I")
+
+list_with_dupes = list_creator("S")
 list_without_dupes = dupe_remover(list_with_dupes)
-
-
-
-
-
 
 # question I am going to look into: how does the distribution of integer lists change when dupes are 
 # removes versus kept
