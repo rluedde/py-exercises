@@ -24,17 +24,13 @@ while True:
 		cows = 0
 		bulls = 0
 		
-		# finds how many cows there are
-		#	(right number right position)
+		# finds how many cows (right number right position) and bulls (right number wrong position)
+		# there are in the guess
 		for i in range(len(guess)):
 			if special_number[i] == guess[i]:
 				cows += 1
-
-		# finds how many bulls there are
-		# 	(right number wrong position)
-		for digit in guess:
-			if digit in special_number:
-					bulls += 1
+			elif (guess[i] in special_number) and (guess[i] != special_number[i]):
+				bulls += 1
 
 		# finds if there's duplicated digits in the special_number
 		# game can be REAL frustrating if there is dupes and you don't know
@@ -56,7 +52,7 @@ while True:
 			bull_word = "bulls"
 
 		# prints neccessary game information after each turn
-		print(str(cows),cow_word, ",", str(bulls),bull_word,"\n" + "dupes:",dupe)
+		print(str(cows),cow_word, ",", str(bulls),bull_word,"\n" + "dupes:",dupe, special_number)
 
 	# if an unknown error happens during play (i think i've handled all of the errors though), 
 	# this error message pops up
