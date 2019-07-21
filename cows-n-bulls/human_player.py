@@ -31,15 +31,6 @@ while True:
 				cows += 1
 			elif (guess[i] in special_number) and (guess[i] != special_number[i]):
 				bulls += 1
-
-		# finds if there's duplicated digits in the special_number
-		# game can be REAL frustrating if there is dupes and you don't know
-		# something to ossibly come back and try to fix down the line?
-		dupe = None
-		if len(list(special_number)) != len(set(list(special_number))):
-			dupe = True
-		else:
-			dupe = False
 		
 		# decides the plurality of the words that are printed after a guess
 		if cows == 1:
@@ -52,7 +43,7 @@ while True:
 			bull_word = "bulls"
 
 		# prints neccessary game information after each turn
-		print(str(cows),cow_word, ",", str(bulls),bull_word,"\n" + "dupes:",dupe, special_number)
+		print(str(cows),cow_word, ",", str(bulls),bull_word)
 
 	# if an unknown error happens during play (i think i've handled all of the errors though), 
 	# this error message pops up
