@@ -2,6 +2,22 @@
 
 import random
 
+# object that represents a guess. when the bot_player.game_flow() is called, the guess object will
+# have the cows and bulls attribute updated and the whole object will be store somewhere
+class Guess:
+
+	def __init__(self,first,second,third,fourth):	
+		self.first = first
+		self.second = second
+		self.third = third
+		self.fourth = fourth
+		self.cows = 0
+		self.bulls = 0
+
+	def __repr__(self):
+		return("".join([self.first,self.second,self.third,self.fourth]) + "\n" + "cows: " + str(self.cows) + "\n"
+			"bulls: " + str(self.bulls))
+
 def num_creator():
 	# number that user is trying to guess 
 	# this range allows for all possible numbers that can be convted into 4 digits (or already are)
@@ -23,5 +39,8 @@ def num_creator():
 			continue
 		else:
 			break
-	return(special_number)
+	return(Guess(special_number[0],special_number[1],special_number[2],special_number[3]))
 
+g1 = num_creator()
+
+print(g1)
