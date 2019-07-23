@@ -18,6 +18,9 @@ class Guess:
 		return("".join([self.first,self.second,self.third,self.fourth]) + "\n" + "cows: " + str(self.cows) + "\n"
 			"bulls: " + str(self.bulls))
 
+	def to_string(self):
+		return("".join([self.first,self.second,self.third,self.fourth]))
+
 def num_creator():
 	# number that user is trying to guess 
 	# this range allows for all possible numbers that can be convted into 4 digits (or already are)
@@ -43,4 +46,4 @@ def num_creator():
 
 g1 = num_creator()
 
-print(g1)
+print(g1.to_string())
