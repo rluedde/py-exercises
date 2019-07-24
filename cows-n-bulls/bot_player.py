@@ -1,52 +1,42 @@
 # this program is a bot that plays cows and bulls in the most efficient manner possible
 
-import num_creator as nc
+from num_creator import Guess, num_creator
 
-# creates the special 4-digit number that the user will be trying to guess
-special_number = nc.num_creator()
+# creates an instance of the Guess class (from num_creator.py)
+special_number = num_creator()
 
-# this function algorithmically formulates a new guess on each iteration of the 
-# program
-def guesser():
+# while loop that does all game actions:
+# takes a Guess and returns the Guess but with cows and bulls
+def game_flow():
+	# default guess for initial pre-algorithm purposes
+	guess = Guess(0,1,2,3)
+	# creates the special 4-digit number that the user will be trying to guess
+	special_number = num_creator()
+	while True:
+		# checks win condition
+		if special_number == guess:
+			print("You guessed the special number!")
+			break
 
-# loop to provoke guesses from user
-while True:
+		# finds how many cows (right number right position) and bulls (right number wrong position)
+		# there are in the guess
+		# makes the guess and special_number objects into strings so indexing can be used
+		string_special_number = special_number.to_string()
+		string_guess = guess.to_string()
 
-	guess = guesser()
-	# checks win condition
-	if str(special_number) == guess:
-		print("You guessed the special number!")
+		for i in range(len(string_special_number)):
+			if string_special_number[i] == string_guess[i]:
+				guess.cows += 1
+			elif (string_guess[i] in string_special_number) and (string_guess[i] != string_special_number[i]):
+				guess.bulls += 1
 		break
-	
-	# makes sure that the guess is 4 digits and if it's not it asks for another guess
-	if len(guess) != 4:
-		print("Enter a *4* digit number! ")
-		continue
+	return guess
 
-	cows = 0
-	bulls = 0
-	
-	# finds how many cows there are
-	#	(right number right position)
-	for i in range(len(guess)):
-		if special_number[i] == guess[i]:
-			cows += 1
 
-	# finds how many bulls there are
-	# 	(right number wrong position)
-	for digit in guess:
-		if digit in special_number:
-				bulls += 1
-	
-	# decides the plurality of the words that are printed after a guess
-	if cows == 1:
-		cow_word = "cow"
-	else:
-		cow_word = "cows"
-	if bulls == 1:
-		bull_word = "bull"
-	else:
-		bull_word = "bulls"
+# test code
+something = game_flow()
 
-	# prints neccessary game information after each turn
-	print(str(cows),cow_word, ",", str(bulls),bull_word)
+print(something)
+
+
+

@@ -14,12 +14,17 @@ class Guess:
 		self.cows = 0
 		self.bulls = 0
 
+	# prints the digits as a string, and the number of cows and bulls respectively.
 	def __repr__(self):
-		return("".join([self.first,self.second,self.third,self.fourth]) + "\n" + "cows: " + str(self.cows) + "\n"
+		elements = [self.first,self.second,self.third,self.fourth]
+		# the list comprehension just turns all of the elements in elements into strings from integers
+		return("".join([str(element) for element in elements]) + "\n" + "cows: " + str(self.cows) + "\n" +
 			"bulls: " + str(self.bulls))
 
+	# makes the digits of the object into a string
 	def to_string(self):
-		return("".join([self.first,self.second,self.third,self.fourth]))
+		digits = [str(self.first),str(self.second),str(self.third),str(self.fourth)]
+		return("".join(digits))
 
 def num_creator():
 	# number that user is trying to guess 
@@ -42,8 +47,5 @@ def num_creator():
 			continue
 		else:
 			break
+
 	return(Guess(special_number[0],special_number[1],special_number[2],special_number[3]))
-
-g1 = num_creator()
-
-print(g1.to_string())
